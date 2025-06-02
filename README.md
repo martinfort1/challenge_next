@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📖 Libro de Visitas
 
-## Getting Started
+Una pequeña aplicación web construida con Next.js, TypeScript y ShadCN UI, que permite a los usuarios dejar un mensaje y ver mensajes anteriores. Los datos se almacenan temporalmente en memoria.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tecnologías utilizadas
+
+- [Next.js 13+ (App Router)](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ShadCN UI](https://ui.shadcn.dev/)
+- [Zod](https://zod.dev/) – Validación de formularios
+- Fetch API para la comunicación con endpoints
+
+---
+
+## 🧰 Funcionalidades
+
+- Ver mensajes previamente enviados (`GET /api/messages`)
+- Enviar un nuevo mensaje (`POST /api/messages`)
+- Validación con Zod
+- Interfaz adaptable con soporte para dark mode
+- Almacenamiento temporal en memoria (array)
+
+---
+
+## 📦 Instalación
+
+1. Cloná el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/libro-de-visitas.git
+   cd libro-de-visitas
+   ```
+
+2. Instalá las dependencias:
+   ```bash
+   npm install # o npm install / yarn install
+   ```
+
+3. Ejecutá el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+4. Abrí tu navegador en: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🔧 Endpoints de la API
+
+### `GET /api/messages`
+Retorna todos los mensajes guardados en memoria.
+
+#### Respuesta:
+```json
+[
+  {
+    "nombre": "Juan Perez",
+    "mensaje": "¡Gran servicio!",
+    "fecha": "2025-05-29T14:22:31.447Z"
+  },
+  ...
+]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### `POST /api/messages`
+Crea un nuevo mensaje. Espera un `JSON` con:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```json
+{
+  "nombre": "Tu nombre",
+  "mensaje": "Tu mensaje"
+}
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🗂 Estructura de carpetas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+/app
+  /api/messages/route.ts     → Endpoint GET/POST
+  /mensajes/page.tsx         → Página con tabla de mensajes
+  /formulario/page.tsx       → Página con el formulario
+/components
+  Header.tsx                 → Encabezado con imagen/logo
+  MessageForm.tsx            → Formulario con validación Zod
+/public
+  /komuk_edit.JPG            → Imagen mostrada en el header
+  /favicon.ico               → Icono de la pestaña
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚠️ Nota
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este proyecto almacena los mensajes **solo en memoria**. Cada vez que se reinicie el servidor, los mensajes se perderán. Para un proyecto en producción, se recomienda usar una base de datos como PostgreSQL, MongoDB o SQLite.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 Licencia
+
+MIT © [Tu Nombre]
