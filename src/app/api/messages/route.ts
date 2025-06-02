@@ -2,7 +2,7 @@ import { Mensaje } from "@/lib/types";
 import { NextResponse } from "next/server"
 
 
-let mensajes: Mensaje[] = [
+const mensajes: Mensaje[] = [
     {
         nombre: "Jorge Perez",
         mensaje: "Grandisimos productos.",
@@ -49,6 +49,7 @@ export async function POST(req: Request) {
         });
     }
     catch(error){
+        console.error("Error al guardar el mensaje:", error);
         return NextResponse.json({ error: "No hemos podido guardar el mensaje" }, { status: 500 });    
     }
 
