@@ -23,10 +23,7 @@ export default function ListaMensajes() {
     , []);
   return (
     <section className="flex flex-col gap-8 w-full mx-auto px-4 sm:px-0">
-      
-      <h6 className="text-3xl font-bold text-center sm:text-left">
-        Nuestros últimos mensajes
-      </h6>
+
 
       <DataTable columns={columns} data={mensajes} />
 
