@@ -19,9 +19,8 @@ Una pequeña aplicación web construida con Next.js, TypeScript y ShadCN UI, que
 
 - Ver mensajes previamente enviados (`GET /api/messages`)
 - Enviar un nuevo mensaje (`POST /api/messages`)
-- Validación con Zod
-- Interfaz adaptable con soporte para dark mode
-- Almacenamiento temporal en memoria (array)
+- Validación de formulario con Zod
+- Almacenamiento temporal en memoria (array de objetos)
 
 ---
 
@@ -83,11 +82,15 @@ Crea un nuevo mensaje. Espera un `JSON` con:
 ```
 /app
   /api/messages/route.ts     → Endpoint GET/POST
-  /mensajes/page.tsx         → Página con tabla de mensajes
-  /formulario/page.tsx       → Página con el formulario
+  /page.tsx                  → Página con lista de mensajes
+  /new/page.tsx              → Página con el formulario
+  /layout.tsx                → Layout de la página
 /components
   Header.tsx                 → Encabezado con imagen/logo
-  MessageForm.tsx            → Formulario con validación Zod
+  ListaMensajes.tsx          → Componente para renderizar tabla
+  columns.tsx                → Definición de columnas de la tabla
+  DataTable.tsx              → Tabla creada con tanstack
+  /ui                        → Carpeta con componentes de shadcn/ui
 /public
   /komuk_edit.JPG            → Imagen mostrada en el header
   /favicon.ico               → Icono de la pestaña
@@ -97,10 +100,4 @@ Crea un nuevo mensaje. Espera un `JSON` con:
 
 ## ⚠️ Nota
 
-Este proyecto almacena los mensajes **solo en memoria**. Cada vez que se reinicie el servidor, los mensajes se perderán. Para un proyecto en producción, se recomienda usar una base de datos como PostgreSQL, MongoDB o SQLite.
-
----
-
-## 📄 Licencia
-
-MIT © [Tu Nombre]
+Este proyecto almacena los mensajes **solo en memoria**. Cada vez que se reinicie el servidor, los mensajes se perderán.
