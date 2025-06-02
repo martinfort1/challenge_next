@@ -29,7 +29,7 @@ Una pequeña aplicación web construida con Next.js, TypeScript y ShadCN UI, que
 1. Cloná el repositorio:
    ```bash
    git clone https://github.com/martinfort1/challenge_next.git
-   cd libro-de-visitas
+   cd challenge_next
    ```
 
 2. Instalá las dependencias:
