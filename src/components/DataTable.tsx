@@ -36,7 +36,7 @@ export function DataTable<TData, TValue>({
       <h6 className="text-3xl font-bold pb-3">
         Nuestros últimos mensajes
       </h6>
-      <Table className="rounded-md border w-600">
+      <Table className="rounded-md border table-auto">
         <TableHeader className="bg-gray-200">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>

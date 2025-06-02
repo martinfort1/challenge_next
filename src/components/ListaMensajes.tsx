@@ -22,7 +22,7 @@ export default function ListaMensajes() {
     }
     , []);
   return (
-    <section className="flex flex-col gap-8 w-full mx-auto px-4 sm:px-0">
+    <section className="flex flex-col gap-8 w-full mx-auto px-4 sm:px-0 mt-[9rem]">
 
 
       <DataTable columns={columns} data={mensajes} />
